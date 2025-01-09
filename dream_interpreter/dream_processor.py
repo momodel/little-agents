@@ -34,7 +34,7 @@ def retry_with_backoff(func, max_retries=3, initial_delay=1):
 def analyze_dream(dream_description):
     """分析梦境内容"""
     response = client.chat.completions.create(
-        model="gpt-4o",
+        model="gpt-4o-mini",
         messages=[
             {
                 "role": "system",
@@ -63,7 +63,7 @@ def generate_dream_image(dream_description, dream_analysis):
     """生成梦境场景图像"""
     # 先生成图像提示词
     prompt_response = client.chat.completions.create(
-        model="gpt-4o",
+        model="gpt-4o-mini",
         messages=[
             {
                 "role": "system",
