@@ -1,0 +1,19 @@
+input:
+  '梦境描述':
+    name: 梦境描述
+    value_type: str
+    description: '详细描述您的梦境内容，包括场景、人物、情节和感受'
+    example: '我梦见自己在一个古老的图书馆里，书架高耸入云。突然，所有的书开始发光，像萤火虫一样飘在空中。我感到既惊讶又平静。'
+
+output:
+  '解梦报告':
+    name: 解梦报告
+    value_type: str
+    description: '专业的梦境心理分析报告，包含多个维度的深度解读'
+    example: '您的梦境反映了对知识的渴望和对神秘未知的向往...'
+  
+  '梦境图像':
+    name: 梦境图像
+    value_type: img
+    description: 'AI根据梦境内容生成的艺术化视觉呈现'
+    example: 'https://imgbed.momodel.cn/generated_dream_image.png' 

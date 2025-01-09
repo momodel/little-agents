@@ -1,0 +1,25 @@
+input:
+  '主图片':
+    name: 主图片
+    value_type: img
+    description: '第一张图片，作为主要风格来源'
+    example: 'https://imgbed.momodel.cn/hashed/8249618ad3a6efab1b2813c3cca67138.png'
+  
+  '融合图片':
+    name: 融合图片
+    value_type: img
+    description: '第二张图片，作为融入元素来源'
+    example: 'https://imgbed.momodel.cn/hashed/acd48bb7aacc2bdbb2ef8b8bdb669e56.png'
+  
+  '融合描述':
+    name: 融合描述
+    value_type: str
+    description: '描述如何将两张图片的元素融合在一起'
+    example: '雷峰塔戴着围巾'
+
+output:
+  '生成图片':
+    name: 生成图片
+    value_type: img
+    description: '融合两张图片元素后生成的新图片'
+    example: 'https://imgbed.momodel.cn/hashed/87833322935aad38a73275b08f365051.png'
