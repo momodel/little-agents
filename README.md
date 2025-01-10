@@ -29,7 +29,7 @@
 - 支持自然语言描述融合方式
 - 并行处理提升效率
 
-[详细说明](./image_fusion/README.md)
+[详细说明](./image_fusion/)
 
 ## 智能解梦
 
@@ -41,7 +41,7 @@
 - 梦境场景可视化
 - 提供个性化建议
 
-[详细说明](./dream_interpreter/README.md)
+[详细说明](./dream_interpreter/)
 
 ## 技术栈
 
