@@ -50,10 +50,25 @@ def handle(conf):
                 '梦境图像': image_filename
             }
         else:
-            raise Exception(result['message'])
+            # 处理失败，返回错误信息和错误图片
+            # 如果有解梦分析，返回错误信息和解梦分析
+            if 'dream_analysis' in result:
+                return {
+                    '解梦报告': f"[图像生成失败：{result['message']}]\n\n{result['dream_analysis']}",
+                    '梦境图像': './error.png'
+                }
+            # 如果完全失败，只返回错误信息
+            return {
+                '解梦报告': result['message'],
+                '梦境图像': './error.png'
+            }
             
     except Exception as e:
-        raise Exception(f"处理失败: {str(e)}")
+        # 发生异常，返回错误信息和错误图片
+        return {
+            '解梦报告': f"解梦过程中出现错误：{str(e)}",
+            '梦境图像': './error.png'
+        }
 
 # 测试代码
 if __name__ == "__main__":
@@ -62,9 +77,6 @@ if __name__ == "__main__":
         '梦境描述': '我梦见自己在一个古老的图书馆里，书架高耸入云。突然，所有的书开始发光，像萤火虫一样飘在空中。我感到既惊讶又平静。'
     }
     
-    try:
-        result = handle(test_conf)
-        print("解梦报告:", result['解梦报告'])
-        print("梦境图像已保存为:", result['梦境图像'])
-    except Exception as e:
-        print("处理失败:", str(e)) 
+    result = handle(test_conf)
+    print("解梦报告:", result['解梦报告'])
+    print("梦境图像:", result['梦境图像']) 

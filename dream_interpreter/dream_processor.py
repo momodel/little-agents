@@ -105,16 +105,32 @@ def process_dream(dream_description):
         
         # 2. 生成梦境图像
         print("正在生成梦境图像...")
-        image_url = generate_dream_image(dream_description, dream_analysis)
-        
-        return {
-            "status": "success",
-            "dream_analysis": dream_analysis,
-            "image_url": image_url
-        }
+        try:
+            image_url = generate_dream_image(dream_description, dream_analysis)
+            
+            return {
+                "status": "success",
+                "dream_analysis": dream_analysis,
+                "image_url": image_url
+            }
+        except Exception as e:
+            # 如果图像生成失败，仍然返回解梦分析
+            error_message = str(e)
+            if "content_policy_violation" in error_message:
+                error_message = "您的梦境描述包含了一些敏感内容，无法生成图像。但这不影响解梦分析的结果。"
+            
+            return {
+                "status": "error",
+                "message": error_message,
+                "dream_analysis": dream_analysis
+            }
         
     except Exception as e:
+        error_message = str(e)
+        if "content_policy_violation" in error_message:
+            error_message = "您的梦境描述包含了一些敏感内容，请调整描述后重试。"
+            
         return {
             "status": "error",
-            "message": str(e)
+            "message": error_message
         } 
